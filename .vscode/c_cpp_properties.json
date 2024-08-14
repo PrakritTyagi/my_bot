@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/prakrit/mocap_ws/install/rqt_mocap_control/include/**",
+        "/home/prakrit/mocap_ws/install/mocap_robot_gt_msgs/include/**",
+        "/home/prakrit/mocap_ws/install/mocap_optitrack_driver/include/**",
+        "/home/prakrit/mocap_ws/install/mocap_msgs/include/**",
+        "/home/prakrit/mocap_ws/install/mocap_marker_viz_srvs/include/**",
+        "/home/prakrit/mocap_ws/install/mocap_control/include/**",
+        "/home/prakrit/mocap_ws/install/mocap_control_msgs/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/prakrit/ws_mybot/src/my_bot/include/**",
+        "include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
