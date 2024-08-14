@@ -40,7 +40,7 @@
                 <clip>
                     <!-- how close and how far the camera can see -->
                     <near>0.05</near> 
-                    <far>8.0</far>
+                    <far>10.0</far>
                 </clip>
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
