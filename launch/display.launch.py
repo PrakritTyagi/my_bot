@@ -5,6 +5,8 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import RegisterEventHandler
+from launch.event_handlers import OnProcessExit
 
 from launch_ros.actions import Node
 
@@ -39,7 +41,7 @@ def generate_launch_description():
     # Include the Gazebo launch file, provided by the gazebo_ros package
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-                launch_arguments={'world': os.path.join(pkg_path, 'worlds/my_world.world'),
+                launch_arguments={'world': os.path.join(pkg_path, 'worlds/duckytown.world'),
                                     'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file}.items(),)
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
@@ -56,6 +58,7 @@ def generate_launch_description():
         arguments=['diff_cont']
     )
 
+
     joint_broad_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -70,8 +73,19 @@ def generate_launch_description():
         name='rviz2',
         output='screen',
         arguments=['-d', rvizconfig],
+        parameters=[twist_mux_params, {'use_sim_time': True}]
     )
 
+        # Register event handler to wait for spawn_entity to exit before launching the controllers
+    on_spawn_entity_exit = RegisterEventHandler(
+        OnProcessExit(
+            target_action=spawn_entity,
+            on_exit=[
+                diff_drive_spawner,
+                joint_broad_spawner
+            ]
+        )
+    )
     # Launch them all!
     return LaunchDescription([
         rsp,
@@ -79,7 +93,8 @@ def generate_launch_description():
         twist_mux,
         gazebo,
         spawn_entity,
-        diff_drive_spawner,
-        joint_broad_spawner,
+        on_spawn_entity_exit,
+        # diff_drive_spawner,
+        # joint_broad_spawner,
         rviz_node
     ])
