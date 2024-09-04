@@ -71,11 +71,8 @@ The simulation world is duckytown.world. It is a simple world in urban environme
 ## Navigation while Mapping
 
 
-<video width="768" height="480" controls>
-  <source src="files/SLAM_while_navigating.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 
-<!-- ## License
+https://github.com/user-attachments/assets/a9e71b3b-4d56-45cb-bd19-ef59dc20a2a9
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. -->
+
+
