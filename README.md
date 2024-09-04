@@ -64,6 +64,18 @@ ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
 
 The simulation world is duckytown.world. It is a simple world in urban environment with a few obstacles. 
 
+![Simulation World](files/Gazebo.png)
+
+
+
+## Navigation while Mapping
+
+
+<video width="768" height="480" controls>
+  <source src="files/SLAM_while_navigating.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 <!-- ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. -->
