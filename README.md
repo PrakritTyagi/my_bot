@@ -76,6 +76,15 @@ The simulation world is duckytown.world. It is a simple world in urban environme
   Your browser does not support the video tag.
 </video>
 
+
+## Docker 
+
+The docker file is provided in the my_bot/dockerfile directory. You can copy it to the root of the workspace and build the docker image. I used this with 
+vscode remote container extension. 
+
+
+- If while running docker the gazebo takes time to load, change the world file to a simple one. In my experience, you would have to wait a while for the gazebo to load the duckytown.world file.
+
 <!-- ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. -->
